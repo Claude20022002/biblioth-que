@@ -4,10 +4,66 @@
     box-sizing: border-box;
 }
 .body {
-    background: url("../assets/images/pexels-marta-dzedyshko-1042863-2067569.jpg");
+    background: url("./images/pexels-rickyrecap-1907785.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(5px);
     color: #e68369;
+}
+.text {
+    position: relative;
+    z-index: 1;
+    background-color: #131842;
+    border-radius: 30% 70% 24% 76% / 31% 25% 75% 69%;
+    box-sizing: border-box;
+    overflow: auto;
+    height: 400px;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px 5px rgba(236, 206, 174, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(236, 206, 174, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px 5px rgba(236, 206, 174, 0.8);
+    }
+}
+
+.text::before {
+    content: "";
+    position: absolute;
+    border-radius: 61% 39% 52% 48% / 29% 25% 75% 71%;
+    background-color: #ecceae;
+    bottom: auto;
+    left: auto;
+    z-index: -5;
+    top: 260px;
+    right: 32px;
+    width: 120px;
+    height: 120px;
+    animation: pulse 2s infinite; /* Animation qui fait pulser l'effet lumineux */
+}
+
+.text::after {
+    content: "";
+    position: absolute;
+    border-radius: 30% 70% 61% 39% / 42% 25% 75% 58%;
+    background-color: #e68369;
+    top: 10px;
+    left: 10px;
+    z-index: 5;
+    width: 100px;
+    height: 100px;
+    animation: pulse 2s infinite; /* Animation qui fait pulser l'effet lumineux */
 }
