@@ -13,27 +13,27 @@ import { styled } from "@mui/material/styles";
 const cards = [
     {
         id: 1,
-        title: "Évasion et développement personnel",
+        title: "Escape and Personal Development",
         description:
-            "La lecture permet de s'évader dans des mondes imaginaires ou de découvrir de nouvelles perspectives. Cela peut être une véritable échappatoire au quotidien et aider à nourrir son esprit avec des idées nouvelles.",
+            "Reading allows you to escape into imaginary worlds or discover new perspectives. It can be a true getaway from daily life and help nourish the mind with fresh ideas.",
     },
     {
         id: 2,
-        title: "Amélioration de la concentration et de la mémoire",
+        title: "Improved Concentration and Memory",
         description:
-            "Lire nécessite de l'attention et de la concentration, ce qui aide à améliorer la capacité à se concentrer.",
+            "Reading requires attention and focus, which helps enhance the ability to concentrate.",
     },
     {
         id: 3,
-        title: "Développement du vocabulaire et des compétences linguistiques",
+        title: "Vocabulary and Language Skills Development",
         description:
-            "Lire régulièrement expose à de nouveaux mots et à différentes structures grammaticales, ce qui enrichit le vocabulaire et améliore les compétences linguistiques.",
+            "Regular reading exposes you to new words and different grammatical structures, enriching vocabulary and improving language skills.",
     },
     {
         id: 4,
-        title: "Réduction du stress et relaxation",
+        title: "Stress Reduction and Relaxation",
         description:
-            "Plonger dans un bon livre permet de se détendre et de réduire le stress. En s'immergeant dans une histoire captivante, on oublie les soucis du quotidien, ce qui peut avoir un effet apaisant sur l'esprit et le corps.",
+            "Diving into a good book helps relax and reduce stress. By immersing yourself in a captivating story, you forget everyday worries, which can have a soothing effect on both the mind and body.",
     },
 ];
 
@@ -94,8 +94,7 @@ export default function Accueil() {
                         fontSize: { xs: "1.2rem", sm: "1.8rem", md: "2.5rem" },
                     }}
                 >
-                    Découvrez une nouvelle façon de lire et de découvrir de
-                    nouveaux livres.
+                    Discover a new way to read and explore new books.
                 </Typography>
             </Stack>
 
@@ -115,7 +114,7 @@ export default function Accueil() {
                         variant="h3"
                         sx={{ mb: 3, textAlign: "center" }}
                     >
-                        4 Bonnes raisons de reprendre la lecture
+                        4 Good Reasons to Start Reading Again
                     </Typography>
                     <Grid
                         className="magrid"
@@ -232,11 +231,11 @@ export default function Accueil() {
                             backgroundColor: "#131842",
                             borderRadius: "30% 70% 24% 76% / 31% 25% 75% 69%",
                             boxSizing: "border-box",
-                            overflow: "auto", // Permet le défilement si nécessaire
+                            overflow: "auto",
                             height: "400px",
-                            width: "80%", // Pour éviter l’étirement
-                            maxWidth: "600px", // Empêche une largeur excessive
-                            padding: "20px", // Ajoute un espace intérieur pour éviter que le texte touche les bords
+                            width: "80%",
+                            maxWidth: "600px",
+                            padding: "20px",
                             justifyContent: "center",
                             alignItems: "center",
                             textAlign: "center",
@@ -248,14 +247,13 @@ export default function Accueil() {
                             sx={{
                                 color: "#FBF6E2",
                                 wordBreak: "break-word", // Évite que le texte dépasse la div
-                                fontSize: "1rem", // Ajuste la taille du texte si nécessaire
+                                fontSize: "1rem",
                             }}
                         >
-                            La lecture est une porte ouverte vers l’imaginaire
-                            et la connaissance. Chaque livre est une aventure
-                            qui enrichit l’esprit et nourrit l’âme. Laissez-vous
-                            emporter par la magie des mots et découvrez de
-                            nouveaux horizons !
+                            Reading is a gateway to imagination and knowledge.
+                            Each book is an adventure that enriches the mind and
+                            nourishes the soul. Let yourself be carried away by
+                            the magic of words and explore new horizons!
                         </Typography>
                     </Stack>
                 </Stack>

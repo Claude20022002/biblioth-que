@@ -17,9 +17,8 @@ export default function Footer() {
     return (
         <Box
             sx={{
-                backgroundColor: "#f8f9fa",
                 padding: "40px 0",
-                marginTop: "40px",
+                backgroundColor: "#131842",
             }}
         >
             {/* Section de réseaux sociaux */}
@@ -27,9 +26,13 @@ export default function Footer() {
                 direction="row"
                 justifyContent="center"
                 spacing={2}
-                sx={{ borderBottom: "1px solid #ddd", paddingBottom: "20px" }}
+                sx={{
+                    borderBottom: "1px solid #ddd",
+                    padding: "20px",
+                    alignItems: "center",
+                }}
             >
-                <Typography>
+                <Typography sx={{ color: "#FBF6E2" }}>
                     Get connected with us on social networks:
                 </Typography>
                 <IconButton color="primary" href="#" aria-label="facebook">
@@ -53,7 +56,16 @@ export default function Footer() {
             </Stack>
 
             {/* Section principale du footer */}
-            <Grid container spacing={4} sx={{ paddingTop: "20px" }}>
+            <Grid
+                container
+                spacing={4}
+                sx={{
+                    padding: "20px",
+                    justifyContent: "center",
+                    color: "#FBF6E2",
+                }}
+                className="container"
+            >
                 {/* Section Company */}
                 <Grid item xs={12} md={3}>
                     <Typography
@@ -62,15 +74,15 @@ export default function Footer() {
                     >
                         Claude LK/Claude20022002
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Bibliothèque en ligne pour les passionnés de lecture.
-                        Découvrez une vaste collection de livres et partagez vos
-                        avis avec une communauté de lecteurs.
+                    <Typography variant="body2" color="#FBF6E2">
+                        Online library for book enthusiasts. Discover a vast
+                        collection of books and share your opinions with a
+                        community of readers.
                     </Typography>
                 </Grid>
 
                 {/* Section Categories */}
-                <Grid item xs={6} md={2}>
+                <Grid item xs={6} md={2} sx={{ color: "#FBF6E2" }}>
                     <Typography
                         variant="h6"
                         sx={{ fontWeight: "bold", marginBottom: 2 }}
@@ -80,7 +92,7 @@ export default function Footer() {
                     <Typography variant="body2">
                         <Link
                             to="#"
-                            style={{ textDecoration: "none", color: "#000" }}
+                            style={{ textDecoration: "none", color: "#FBF6E2" }}
                         >
                             Romans
                         </Link>
@@ -88,7 +100,7 @@ export default function Footer() {
                     <Typography variant="body2">
                         <Link
                             to="#"
-                            style={{ textDecoration: "none", color: "#000" }}
+                            style={{ textDecoration: "none", color: "#FBF6E2" }}
                         >
                             Développement
                         </Link>
@@ -96,7 +108,7 @@ export default function Footer() {
                     <Typography variant="body2">
                         <Link
                             to="#"
-                            style={{ textDecoration: "none", color: "#000" }}
+                            style={{ textDecoration: "none", color: "#FBF6E2" }}
                         >
                             Poème
                         </Link>
@@ -104,7 +116,7 @@ export default function Footer() {
                     <Typography variant="body2">
                         <Link
                             to="#"
-                            style={{ textDecoration: "none", color: "#000" }}
+                            style={{ textDecoration: "none", color: "#FBF6E2" }}
                         >
                             Etc
                         </Link>
@@ -112,7 +124,7 @@ export default function Footer() {
                 </Grid>
 
                 {/* Section Useful Links */}
-                <Grid item xs={6} md={2}>
+                <Grid item xs={6} md={2} sx={{ color: "#FBF6E2" }}>
                     <Typography
                         variant="h6"
                         sx={{ fontWeight: "bold", marginBottom: 2 }}
@@ -122,7 +134,7 @@ export default function Footer() {
                     <Typography variant="body2">
                         <Link
                             to="/contact"
-                            style={{ textDecoration: "none", color: "#000" }}
+                            style={{ textDecoration: "none", color: "#FBF6E2" }}
                         >
                             Contact
                         </Link>
@@ -130,7 +142,7 @@ export default function Footer() {
                     <Typography variant="body2">
                         <Link
                             to="/librairie"
-                            style={{ textDecoration: "none", color: "#000" }}
+                            style={{ textDecoration: "none", color: "#FBF6E2" }}
                         >
                             BookStore
                         </Link>
@@ -138,7 +150,7 @@ export default function Footer() {
                 </Grid>
 
                 {/* Section Contact */}
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={3} sx={{ color: "#FBF6E2" }}>
                     <Typography
                         variant="h6"
                         sx={{ fontWeight: "bold", marginBottom: 2 }}
@@ -170,7 +182,7 @@ export default function Footer() {
                     marginTop: "40px",
                 }}
             >
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="#FBF6E2">
                     © 2025 Copyright:
                     <Link
                         to="https://github.com/Claude20022002"
