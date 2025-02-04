@@ -35,22 +35,46 @@ export default function Footer() {
                 <Typography sx={{ color: "#FBF6E2" }}>
                     Get connected with us on social networks:
                 </Typography>
-                <IconButton color="primary" href="#" aria-label="facebook">
+                <IconButton
+                    color="primary"
+                    href="https://www.facebook.com/claudia.LUSAMOTE?mibextid=wwXIfr&mibextid=wwXIfr"
+                    aria-label="facebook"
+                >
                     <Facebook />
                 </IconButton>
-                <IconButton color="primary" href="#" aria-label="twitter">
+                <IconButton
+                    color="primary"
+                    href="https://twitter.com"
+                    aria-label="twitter"
+                >
                     <Twitter />
                 </IconButton>
-                <IconButton color="primary" href="#" aria-label="google">
+                <IconButton
+                    color="primary"
+                    href="https://google.com"
+                    aria-label="google"
+                >
                     <Google />
                 </IconButton>
-                <IconButton color="primary" href="#" aria-label="instagram">
+                <IconButton
+                    color="primary"
+                    href="https://www.instagram.com/claudia.lusamote?igsh=MTdhc2N2Y2FnajdwMg=="
+                    aria-label="instagram"
+                >
                     <Instagram />
                 </IconButton>
-                <IconButton color="primary" href="#" aria-label="linkedin">
+                <IconButton
+                    color="primary"
+                    href="https://www.linkedin.com/in/claudia-lusamotekimfuta-271b512a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                    aria-label="linkedin"
+                >
                     <LinkedIn />
                 </IconButton>
-                <IconButton color="primary" href="#" aria-label="github">
+                <IconButton
+                    color="primary"
+                    href="https://github.com/Claude20022002/biblioth-que/tree/main"
+                    aria-label="github"
+                >
                     <GitHub />
                 </IconButton>
             </Stack>
