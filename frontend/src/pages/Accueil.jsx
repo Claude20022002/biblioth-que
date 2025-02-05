@@ -83,6 +83,7 @@ export default function Accueil() {
                     threshold={0.2}
                     rootMargin="-50px"
                     onLetterAnimationComplete={handleAnimationComplete}
+                    taille="h2"
                 />
                 <Typography
                     className="box-2"

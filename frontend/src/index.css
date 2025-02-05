@@ -2,3 +2,17 @@
 * {
     font-family: "Open Sans", serif;
 }
+
+@media screen and (max-width: 326px) {
+    * {
+        max-width: 100% !important; /* Empêche les débordements */
+        box-sizing: border-box;
+        word-wrap: break-word;
+    }
+
+    body {
+        margin: 0;
+        padding: 5px;
+        font-size: 14px;
+    }
+}
