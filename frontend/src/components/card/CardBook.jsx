@@ -11,7 +11,7 @@ const CardBook = ({ title, image, description }) => {
     return (
         <Card
             sx={{
-                maxWidth: 345,
+                Width: 300,
                 borderRadius: "16px",
                 boxShadow: 3,
                 transition: "transform 0.3s ease",

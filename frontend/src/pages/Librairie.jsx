@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import CardBook from "../components/card/CardBook";
 import "../style/librairie.css";
 import SplitText from "../components/splitText/SplitText";
+import NewCard from "../components/card/NewCard";
 
 export default function Librairie() {
     const [reseach, setReseach] = useState("");
@@ -90,64 +91,15 @@ export default function Librairie() {
                             gap: "35px",
                             width: "95%",
                             justifyContent: "center",
+                            boxSizing: "border-box",
                         }}
                     >
-                        <CardBook
-                            title={"Book"}
-                            image={
-                                "/frontend/public/images/pexels-pixabay-301920.jpg"
-                            }
-                            description={"Des livres inspirant !"}
-                        />
-                        <CardBook
-                            title={"Book"}
-                            image={
-                                "/frontend/public/images/pexels-pixabay-301920.jpg"
-                            }
-                            description={"Des livres inspirant !"}
-                        />
-                        <CardBook
-                            title={"Book"}
-                            image={
-                                "/frontend/public/images/pexels-pixabay-301920.jpg"
-                            }
-                            description={"Des livres inspirant !"}
-                        />
-                        <CardBook
-                            title={"Book"}
-                            image={
-                                "/frontend/public/images/pexels-pixabay-301920.jpg"
-                            }
-                            description={"Des livres inspirant !"}
-                        />
-                        <CardBook
-                            title={"Book"}
-                            image={
-                                "/frontend/public/images/pexels-pixabay-301920.jpg"
-                            }
-                            description={"Des livres inspirant !"}
-                        />
-                        <CardBook
-                            title={"Book"}
-                            image={
-                                "/frontend/public/images/pexels-pixabay-301920.jpg"
-                            }
-                            description={"Des livres inspirant !"}
-                        />
-                        <CardBook
-                            title={"Book"}
-                            image={
-                                "/frontend/public/images/pexels-pixabay-301920.jpg"
-                            }
-                            description={"Des livres inspirant !"}
-                        />
-                        <CardBook
-                            title={"Book"}
-                            image={
-                                "/frontend/public/images/pexels-pixabay-301920.jpg"
-                            }
-                            description={"Des livres inspirant !"}
-                        />
+                        <NewCard />
+                        <NewCard />
+                        <NewCard />
+                        <NewCard />
+                        <NewCard />
+                        <NewCard />
                     </Box>
                 </Stack>
             </Stack>
