@@ -23,13 +23,15 @@ export default function Footer() {
         >
             {/* Section de réseaux sociaux */}
             <Stack
-                direction="row"
-                justifyContent="center"
+                className="Modif"
                 spacing={2}
                 sx={{
                     borderBottom: "1px solid #ddd",
                     padding: "20px",
+                    flexDirection: "row",
                     alignItems: "center",
+                    justifyContent: "center",
+                    boxSizing: "border-box",
                 }}
             >
                 <Typography sx={{ color: "#FBF6E2" }}>

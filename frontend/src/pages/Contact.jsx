@@ -1,11 +1,14 @@
 import { Box, Stack, Typography, Button, TextField } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import Rating from "@mui/material/Rating";
 import "../style/contact.css";
+import toast from "react-hot-toast";
+import axios from "axios"; // Ajout de l'importation d'axios
 
 export default function Contact() {
+    const [loading, setLoading] = useState(false); // État de chargement
     const {
         register,
         handleSubmit,
@@ -13,8 +16,24 @@ export default function Contact() {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        setLoading(true);
+        try {
+            const response = await axios.post(
+                "http://localhost:3000/api/visiter",
+                data
+            );
+            toast.success("Utilisateur enregistré avec succès !");
+        } catch (error) {
+            // Vérification si l'erreur est liée à un email déjà utilisé
+            if (error.response && error.response.data.error) {
+                toast.error(error.response.data.error); // Afficher le message d'erreur spécifique
+            } else {
+                toast.error("Erreur lors de l'envoi des données.");
+            }
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -231,12 +250,12 @@ export default function Contact() {
                                 render={({ field }) => (
                                     <Rating
                                         {...field}
-                                        value={Number(field.value) || 0} // Correction ici
+                                        value={Number(field.value) || 0}
                                         precision={0.5}
                                         size="large"
                                         onChange={(_, newValue) =>
                                             field.onChange(newValue)
-                                        } // Correction ici
+                                        }
                                     />
                                 )}
                             />
@@ -259,8 +278,9 @@ export default function Contact() {
                                     backgroundColor: "#c65b49",
                                 },
                             }}
+                            disabled={loading} // Désactiver le bouton pendant le chargement
                         >
-                            Send
+                            {loading ? "Sending..." : "Send"}
                         </Button>
                     </Stack>
                 </Box>
