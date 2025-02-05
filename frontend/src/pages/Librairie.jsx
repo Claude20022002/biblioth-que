@@ -1,15 +1,18 @@
 import { Stack, TextField, Box, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import CardBook from "../components/card/CardBook";
 import "../style/librairie.css";
 import SplitText from "../components/splitText/SplitText";
 import NewCard from "../components/card/NewCard";
+import SearchBar from "../components/searchbar/SearchBar";
 
 export default function Librairie() {
-    const [reseach, setReseach] = useState("");
+    const [search, setSearch] = useState("");
+    const [errors, setErrors] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
+
     const [books, setBooks] = useState([]);
-    const [errors, setErrors] = useState({});
+
     const handleAnimationComplete = () => {
         console.log("Toutes les lettres ont été animées !");
     };
@@ -38,22 +41,10 @@ export default function Librairie() {
                     padding: "25px 30px",
                 }}
             >
-                <Box sx={{ margin: "20px 5px" }}>
-                    <TextField
-                        label="Reseach"
-                        variant="outlined"
-                        fullWidth
-                        value={reseach}
-                        onChange={(e) => {
-                            setReseach(e.target.value);
-                        }}
-                    />
-                    {errors.nameUser && (
-                        <Typography variant="body2" color="error">
-                            {errors.nameUser.message}
-                        </Typography>
-                    )}
-                </Box>
+                <SearchBar
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                />
                 <Stack
                     sx={{
                         justifyContent: "center",

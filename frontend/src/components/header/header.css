@@ -24,7 +24,7 @@ header {
 .nav a {
     text-decoration: none;
     font-size: 1.05rem;
-    color: #fff;
+    color: #fbf6e2;
     transition: 0.5s ease-in-out;
     position: relative;
 }
@@ -83,7 +83,7 @@ ul {
         right: 0;
         width: 250px;
         height: 100vh;
-        color: #fff;
+        color: #fbf6e2;
         background: #131842;
         flex-direction: column;
         justify-content: center;
