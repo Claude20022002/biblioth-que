@@ -63,7 +63,7 @@ const CardBook = ({ title, image, description }) => {
                     },
                 }}
             >
-                Voir Détails
+                Read
             </Button>
         </Card>
     );

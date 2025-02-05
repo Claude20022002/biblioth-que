@@ -1,52 +1,58 @@
 import React from "react";
+import "../style/librairie.css";
 import { Stack, Box } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import Grid from "@mui/material/Grid2";
+import Paper from "@mui/material/Paper";
 import CardBook from "../components/card/CardBook";
 
-const Librairie = () => {
+export default function Librairie() {
+    // Styling personnalisé pour les éléments Grid
+    const Item = styled(Paper)(({ theme }) => ({
+        backgroundColor: "#fff",
+        ...theme.typography.body2,
+        padding: theme.spacing(2),
+        textAlign: "center",
+        color: theme.palette.text.secondary,
+        borderRadius: "8px", // Ajout d'une bordure arrondie pour un meilleur design
+    }));
+
     return (
-        <Box sx={{ width: "100%", padding: "20px", boxSizing: "border-box" }}>
+        <div className="body">
             <Stack
                 sx={{
-                    display: "grid",
-                    marginTop: "25px",
-                    gridTemplateColumns: "repeat(4,minmax(200px,1fr))",
-                    gap: "20px",
-                    boxSizing: "border-box",
-
-                    "@media (max-width: 1200px)": {
-                        gridTemplateColumns: "repeat(3, minmax(200px, 1fr))",
-                    },
-                    "@media (max-width: 900px)": {
-                        gridTemplateColumns: "repeat(2, minmax(200px, 1fr))",
-                    },
-                    "@media (max-width: 600px)": {
-                        gridTemplateColumns: "1fr",
-                    },
+                    height: "100vh",
+                    flexDirection: "column",
+                    justifyContent: "flex-start", // Utilisation de flex-start pour éviter un grand espace vertical
+                    alignItems: "center",
+                    padding: "20px", // Ajout de padding pour plus de confort
                 }}
             >
-                <CardBook
-                    title="Le Livre A"
-                    image="https://example.com/image-a.jpg"
-                    description="Voici une description courte du Livre A. Ce livre est passionnant."
-                />
-                <CardBook
-                    title="Le Livre B"
-                    image="https://example.com/image-b.jpg"
-                    description="Voici une description courte du Livre B. Ce livre est captivant."
-                />
-                <CardBook
-                    title="Le Livre C"
-                    image="https://example.com/image-c.jpg"
-                    description="Voici une description courte du Livre C. Un excellent choix."
-                />
-                <CardBook
-                    title="Le Livre D"
-                    image="https://example.com/image-d.jpg"
-                    description="Voici une description courte du Livre D. Très recommandé."
-                />
-            </Stack>
-        </Box>
-    );
-};
+                {/* Section de Recherche */}
+                <Box
+                    sx={{
+                        marginBottom: "20px",
+                        fontSize: "24px",
+                        fontWeight: "bold",
+                    }}
+                >
+                    Recherche
+                </Box>
 
-export default Librairie;
+                {/* Grille contenant les cartes */}
+                <Box sx={{ width: "100%" }}>
+                    <Grid
+                        container
+                        spacing={2} // Espacement entre les éléments
+                        sx={{
+                            display: "grid",
+                            gridTemplateColumns:
+                                "repeat(auto-fill, minmax(200px, 1fr))", // Utilisation de `auto-fill` pour la responsivité
+                            gap: "20px", // Espacement entre les cartes
+                        }}
+                    ></Grid>
+                </Box>
+            </Stack>
+        </div>
+    );
+}
