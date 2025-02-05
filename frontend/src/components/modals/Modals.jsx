@@ -1,6 +1,7 @@
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import "./modals.css";
+import { Button } from "@mui/material";
 
 const Modal = ({ show, item, onClose }) => {
     if (!show || !item) {
@@ -9,7 +10,7 @@ const Modal = ({ show, item, onClose }) => {
 
     const thumbnail =
         item.volumeInfo?.imageLinks?.smallThumbnail ||
-        "https://placehold.co/600x400/png";
+        "https://placehold.co/600x400.png";
 
     return (
         <div className="overlay">
@@ -18,44 +19,36 @@ const Modal = ({ show, item, onClose }) => {
                     <CloseIcon />
                 </button>
                 <div className="inner-box">
-                    <img
-                        className="modal-image"
-                        src={thumbnail}
-                        alt={item.volumeInfo?.title}
-                    />
+                    <img src={thumbnail} alt={item.volumeInfo?.title} />
                     <div className="info">
-                        <h1 className="modal-title">
-                            {item.volumeInfo?.title || "Titre inconnu"}
-                        </h1>
-                        <h3 className="modal-author">
+                        <h1>{item.volumeInfo?.title || "Titre inconnu"}</h1>
+                        <h3>
                             {item.volumeInfo?.authors?.join(", ") ||
                                 "Auteur inconnu"}
                         </h3>
-                        <h4 className="modal-details">
+                        <h4>
                             {item.volumeInfo?.publisher || "Éditeur inconnu"}{" "}
                             <span>
-                                {" "}
-                                |{" "}
                                 {item.volumeInfo?.publishedDate ||
                                     "Date inconnue"}
                             </span>
                         </h4>
-                        <p className="modal-description">
-                            {item.volumeInfo?.description ||
-                                "Aucune description disponible."}
-                        </p>
+                        <br />
                         {item.volumeInfo?.previewLink && (
                             <a
                                 href={item.volumeInfo.previewLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="modal-button"
                             >
-                                Découvrir
+                                <Button variant="outlined">Plus d'infos</Button>
                             </a>
                         )}
                     </div>
                 </div>
+                <h4 className="description">
+                    {item.volumeInfo?.description ||
+                        "Aucune description disponible."}
+                </h4>
             </div>
         </div>
     );

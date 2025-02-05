@@ -12,31 +12,26 @@ export default function Librairie() {
     const [searchQuery, setSearchQuery] = useState("");
     const [books, setBooks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const booksPerPage = 8; // Nombre de livres par page
+    const booksPerPage = 8;
 
-    const handleAnimationComplete = () => {
-        console.log("Toutes les lettres ont été animées !");
-    };
-
-    const fetchBooks = async () => {
+    const fetchBooks = async (page = 1) => {
         try {
             const response = await axios.get(
-                "https://www.googleapis.com/books/v1/volumes?q=*&key=AIzaSyBS6AAae5yQNO6CXLLR0ea5jkVukbqvU00"
+                `https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=${booksPerPage}&startIndex=${
+                    (page - 1) * booksPerPage
+                }`
             );
+            console.log(response.data); // Vérification des données
             setBooks(response.data.items || []);
         } catch (error) {
-            setErrors({ fetch: "Failed to fetch books" });
+            console.error("Erreur API :", error);
+            setErrors({ fetch: "Impossible de récupérer les livres" });
         }
     };
 
     useEffect(() => {
-        fetchBooks();
-    }, []);
-
-    // Pagination: Calculer les livres à afficher
-    const indexOfLastBook = currentPage * booksPerPage;
-    const indexOfFirstBook = indexOfLastBook - booksPerPage;
-    const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+        fetchBooks(currentPage);
+    }, [currentPage]);
 
     return (
         <div className="body">
@@ -57,12 +52,11 @@ export default function Librairie() {
                         justifyContent: "center",
                         alignItems: "center",
                         padding: "20px",
-                        border: "1px solid",
                         width: "95%",
                     }}
                 >
                     <SplitText
-                        text="Nos meilleurs ouvrages"
+                        text="Our best books"
                         className="text-2xl font-semibold box-1"
                         delay={100}
                         animationFrom={{
@@ -76,12 +70,10 @@ export default function Librairie() {
                         easing="easeOutCubic"
                         threshold={0.2}
                         rootMargin="-50px"
-                        onLetterAnimationComplete={handleAnimationComplete}
                         taille="h6"
                     />
                     <Box
                         sx={{
-                            border: "1px solid",
                             padding: "10px",
                             flexWrap: "wrap",
                             display: "flex",
@@ -92,13 +84,13 @@ export default function Librairie() {
                             boxSizing: "border-box",
                         }}
                     >
-                        {currentBooks.map((book, index) => (
+                        {books.map((book, index) => (
                             <NewCard key={index} book={book} />
                         ))}
                     </Box>
 
                     <PaginationOutlined
-                        totalItems={books.length}
+                        totalItems={100} // Google Books ne donne pas toujours un total précis
                         itemsPerPage={booksPerPage}
                         currentPage={currentPage}
                         setCurrentPage={setCurrentPage}

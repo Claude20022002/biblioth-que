@@ -12,12 +12,12 @@ export default function SearchBar({ searchQuery, setSearchQuery }) {
                 width: "40%",
                 boxShadow: " rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",
                 background: "#FBF6E2",
-                borderRadius: "30px",
+                borderRadius: "5px",
                 fontWeight: "800",
             }}
         >
             <TextField
-                label="Rechercher"
+                label="Search"
                 variant="outlined"
                 fullWidth
                 value={searchQuery}

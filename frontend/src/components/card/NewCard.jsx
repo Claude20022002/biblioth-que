@@ -9,9 +9,10 @@ export default function NewCard({ book }) {
     if (!book || !book.volumeInfo) return null;
 
     let thumbnail =
-        book.volumeInfo?.imageLinks?.smallThumbnail ||
-        "https://placehold.co/600x400/png"; // Image par défaut
-    let amount = book.saleInfo?.listPrice?.amount || "Prix inconnu";
+        book.volumeInfo.imageLinks?.smallThumbnail ||
+        "https://placehold.co/600x400.png"; // Image par défaut
+
+    let amount = book.saleInfo?.listPrice?.amount || "Gratuit"; // Prix par défaut
 
     return (
         <>
@@ -30,10 +31,6 @@ export default function NewCard({ book }) {
                                     className="book-card__img"
                                     src={thumbnail}
                                     alt={book.volumeInfo.title}
-                                    onError={(e) =>
-                                        (e.target.src =
-                                            "https://placehold.co/600x400/png")
-                                    } // Remplacement en cas d'erreur
                                 />
                             </div>
                             <div className="book-card__book-back"></div>
@@ -48,6 +45,7 @@ export default function NewCard({ book }) {
                             {book.volumeInfo.authors?.join(", ") ||
                                 "Auteur inconnu"}
                         </div>
+                        <div className="book-card__price">{amount}</div>
                     </div>
                 </div>
             </main>
