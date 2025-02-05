@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Box, Typography } from "@mui/material";
+import { TextField, Box } from "@mui/material";
 
 export default function SearchBar({ searchQuery, setSearchQuery }) {
     return (

@@ -9,15 +9,17 @@ import PaginationOutlined from "../components/pagination/PaginationOutlined";
 
 export default function Librairie() {
     const [errors, setErrors] = useState("");
-    const [searchQuery, setSearchQuery] = useState("");
+    const [searchQuery, setSearchQuery] = useState(""); // État pour la recherche
     const [books, setBooks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const booksPerPage = 8;
 
-    const fetchBooks = async (page = 1) => {
+    const fetchBooks = async (page = 1, query = "") => {
         try {
             const response = await axios.get(
-                `https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=${booksPerPage}&startIndex=${
+                `https://www.googleapis.com/books/v1/volumes?q=${
+                    query ? `intitle:${query}` : "subject:fiction"
+                }&maxResults=${booksPerPage}&startIndex=${
                     (page - 1) * booksPerPage
                 }`
             );
@@ -30,8 +32,8 @@ export default function Librairie() {
     };
 
     useEffect(() => {
-        fetchBooks(currentPage);
-    }, [currentPage]);
+        fetchBooks(currentPage, searchQuery); // Appel de la fonction de recherche avec le query
+    }, [currentPage, searchQuery]); // Dépendances : quand `currentPage` ou `searchQuery` change
 
     return (
         <div className="body">
@@ -44,7 +46,7 @@ export default function Librairie() {
             >
                 <SearchBar
                     searchQuery={searchQuery}
-                    setSearchQuery={setSearchQuery}
+                    setSearchQuery={setSearchQuery} // Met à jour la recherche
                 />
                 <Stack
                     sx={{
