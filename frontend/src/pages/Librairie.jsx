@@ -10,7 +10,7 @@ export default function Librairie() {
     const fetchBooks = async () => {
         try {
             const response = await axios.get(
-                "https://www.googleapis.com/books/v1/volumes?q=*&key=AIzaSyBS6AAae5yQNO6CXLLR0ea5jkVukbqvU00"
+                "https://www.googleapis.com/books/v1/volumes?q=*&key=APIKEY"
             );
             setBooks(response.data.items || []);
             console.log(books);
