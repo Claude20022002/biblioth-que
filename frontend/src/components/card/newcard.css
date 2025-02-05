@@ -3,10 +3,11 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .book-card {
-    width: auto;
+    max-width: 300px;
     padding: 16px;
     border-radius: 5px;
     background-color: #fbf6e2;

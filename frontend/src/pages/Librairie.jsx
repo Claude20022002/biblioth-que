@@ -1,17 +1,18 @@
-import { Stack, TextField, Box, Typography } from "@mui/material";
+import { Stack, Box } from "@mui/material";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "../style/librairie.css";
 import SplitText from "../components/splitText/SplitText";
 import NewCard from "../components/card/NewCard";
 import SearchBar from "../components/searchbar/SearchBar";
+import PaginationOutlined from "../components/pagination/PaginationOutlined";
 
 export default function Librairie() {
-    const [search, setSearch] = useState("");
     const [errors, setErrors] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
-
     const [books, setBooks] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const booksPerPage = 8; // Nombre de livres par page
 
     const handleAnimationComplete = () => {
         console.log("Toutes les lettres ont été animées !");
@@ -20,10 +21,9 @@ export default function Librairie() {
     const fetchBooks = async () => {
         try {
             const response = await axios.get(
-                "https://www.googleapis.com/books/v1/volumes?q=*&key=APIKEY"
+                "https://www.googleapis.com/books/v1/volumes?q=*&key=AIzaSyBS6AAae5yQNO6CXLLR0ea5jkVukbqvU00"
             );
             setBooks(response.data.items || []);
-            console.log(books);
         } catch (error) {
             setErrors({ fetch: "Failed to fetch books" });
         }
@@ -32,6 +32,12 @@ export default function Librairie() {
     useEffect(() => {
         fetchBooks();
     }, []);
+
+    // Pagination: Calculer les livres à afficher
+    const indexOfLastBook = currentPage * booksPerPage;
+    const indexOfFirstBook = indexOfLastBook - booksPerPage;
+    const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+
     return (
         <div className="body">
             <Stack
@@ -47,6 +53,7 @@ export default function Librairie() {
                 />
                 <Stack
                     sx={{
+                        boxSizing: "border-box",
                         justifyContent: "center",
                         alignItems: "center",
                         padding: "20px",
@@ -85,13 +92,17 @@ export default function Librairie() {
                             boxSizing: "border-box",
                         }}
                     >
-                        <NewCard />
-                        <NewCard />
-                        <NewCard />
-                        <NewCard />
-                        <NewCard />
-                        <NewCard />
+                        {currentBooks.map((book, index) => (
+                            <NewCard key={index} book={book} />
+                        ))}
                     </Box>
+
+                    <PaginationOutlined
+                        totalItems={books.length}
+                        itemsPerPage={booksPerPage}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                    />
                 </Stack>
             </Stack>
         </div>
